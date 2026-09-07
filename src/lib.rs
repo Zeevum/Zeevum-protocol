@@ -29,6 +29,9 @@ pub enum ClientMsg {
         protocol_version: u32,
         method: AuthMethod,
     },
+    PowSolution {
+        nonce: u64,
+    },
     SearchUser {
         login: String,
     },
@@ -197,6 +200,13 @@ mod tests {
             is_read: true,
         };
         let back: ServerMsg = decode(&encode(&msg).unwrap()).unwrap();
+        assert_eq!(back, msg);
+    }
+
+    #[test]
+    fn roundtrip_pow_solution() {
+        let msg = ClientMsg::PowSolution { nonce: 987_654_321 };
+        let back: ClientMsg = decode(&encode(&msg).unwrap()).unwrap();
         assert_eq!(back, msg);
     }
 }
