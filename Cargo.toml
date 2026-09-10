@@ -1,10 +1,10 @@
 [package]
-name = "Zeevum-protocol"
+name = "zeevum-protocol"
 version = "0.1.0"
 edition = "2021"
 license = "MIT"
 description = "Wire protocol types for Zeevum messenger"
-repository = "https://github.com/Zeevum/Zeevum-Protocol"
+repository = "https://github.com/Zeevum/zeevum-Protocol"
 
 [dependencies]
 serde = { version = "1.0.229", features = ["derive"] }
