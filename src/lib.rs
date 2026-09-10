@@ -58,17 +58,9 @@ pub enum ClientMsg {
 #[derive(Debug, Clone, Serialize, Deserialize, PartialEq)]
 #[serde(tag = "kind", rename_all = "snake_case")]
 pub enum AuthMethod {
-    Token {
-        token: String,
-    },
-    Login {
-        login: String,
-        password: String,
-    },
-    Register {
-        login: String,
-        password: String,
-    },
+    Token { token: String },
+    Login { login: String, password: String },
+    Register { login: String, password: String },
 }
 
 /// Сообщение от сервера к клиенту

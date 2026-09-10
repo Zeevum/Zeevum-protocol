@@ -33,7 +33,6 @@ impl Difficulty {
 }
 
 pub fn generate_challenge() -> String {
-    use rand::Rng;
     (0..16)
         .map(|_| format!("{:x}", rand::rng().random_range(0u8..16)))
         .collect()
@@ -107,7 +106,6 @@ mod tests {
 
         assert_eq!(leading_zero_bits(&[0x00; 32]), 256);
     }
-
 
     #[test]
     fn solve_finds_verifiable_nonce() {

@@ -3,17 +3,6 @@
 version = 4
 
 [[package]]
-name = "Zeevum-protocol"
-version = "0.1.0"
-dependencies = [
- "rand",
- "serde",
- "serde_json",
- "sha2",
- "uuid",
-]
-
-[[package]]
 name = "block-buffer"
 version = "0.12.1"
 source = "registry+https://github.com/rust-lang/crates.io-index"
@@ -351,6 +340,17 @@ source = "registry+https://github.com/rust-lang/crates.io-index"
 checksum = "81941cd78d0c92026c33e5e01312845a4cb1e9af3407f9134b100dd03144103e"
 dependencies = [
  "unicode-ident",
+]
+
+[[package]]
+name = "zeevum-protocol"
+version = "0.1.0"
+dependencies = [
+ "rand",
+ "serde",
+ "serde_json",
+ "sha2",
+ "uuid",
 ]
 
 [[package]]
