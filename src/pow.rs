@@ -108,7 +108,6 @@ mod tests {
         assert_eq!(leading_zero_bits(&[0x00; 32]), 256);
     }
 
-
     #[test]
     fn solve_finds_verifiable_nonce() {
         let challenge = "testtest1test2test3";
