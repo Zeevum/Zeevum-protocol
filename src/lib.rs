@@ -73,6 +73,17 @@ pub enum ErrorCode {
     //
     /// The user is not a participant of the conversation they addressed.
     NotAMember,
+    /// A direct conversation cannot be opened because the two users are not
+    /// friends.
+    ///
+    /// Distinct from [`ErrorCode::NotAMember`]: that one is about a
+    /// conversation that exists, this one is about a relationship that does
+    /// not. A client that receives this on `ResolveDm` should offer to add the
+    /// peer, not drop a conversation from its list.
+    ///
+    /// Deliberately does not separate "never were friends" from "blocked": the
+    /// caller must not be able to tell the difference.
+    NotFriends,
     /// `AcceptFriend` without a pending request from that user.
     NoPendingRequest,
     /// The users are already friends.
@@ -111,6 +122,7 @@ impl std::fmt::Display for ErrorCode {
             ),
             Self::MalformedFrame => write!(f, "Malformed frame"),
             Self::NotAMember => write!(f, "You are not a member of this conversation"),
+            Self::NotFriends => write!(f, "You are not friends with this user"),
             Self::NoPendingRequest => write!(f, "No pending friend request from this user"),
             Self::AlreadyFriends => write!(f, "Already friends"),
             Self::CannotTargetYourself => write!(f, "Cannot target yourself"),
